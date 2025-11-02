@@ -1,6 +1,6 @@
 use crate::Hash;
 
-#[derive(Clone)]
+#[derive(Clone, Copy)]
 pub struct PowHash([u64; 25]);
 
 #[derive(Clone)]

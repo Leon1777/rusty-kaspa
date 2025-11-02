@@ -39,7 +39,7 @@ impl State {
     /// PRE_POW_HASH || TIME || 32 zero byte padding || NONCE
     pub fn calculate_pow(&self, nonce: u64) -> Uint256 {
         // Hasher already contains PRE_POW_HASH || TIME || 32 zero byte padding; so only the NONCE is missing
-        let hash = self.hasher.clone().finalize_with_nonce(nonce);
+        let hash = self.hasher.finalize_with_nonce(nonce);
         let hash = self.matrix.heavy_hash(hash);
         Uint256::from_le_bytes(hash.as_bytes())
     }
